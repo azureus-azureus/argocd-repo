@@ -25,9 +25,9 @@ spec:
         image: azureus3k/gettask3005
         ports: 
         - containerPort: 8000
-        envFrom:
-        - configMapRef:
-            name: configmapconnection
+        # envFrom:
+        # - configMapRef:
+        #     name: configmapconnection
               #        env:
               #- name: CONNECTION_STRING
               # valueFrom:

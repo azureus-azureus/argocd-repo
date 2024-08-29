@@ -5,6 +5,16 @@ metadata:
 spec:
   ingressClassName: azure-application-gateway
   rules:
+   - host: azureus.online
+     http: 
+      paths: 
+      - backend: 
+          service:
+            name: service-todoapp
+            port: 
+              number: 80
+        path: "/"
+        pathType: Prefix
    - host: gettask.azureus.online
      http: 
       paths: 

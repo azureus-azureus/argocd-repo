@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: addtask
+spec:
+  replicas: 1
+  selector: 
+    matchExpressions:
+    - key: app
+      operator: In
+      values: 
+      - addtask
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template: 
+    metadata:
+      labels:
+        app: addtask
+    spec:
+      containers:
+      - name: addtask-con
+        image: azureus3k/addtask3005
+        ports: 
+        - containerPort: 8000
+        envFrom:
+        - secretRef:
+            name: secretconnection

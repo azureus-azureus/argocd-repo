@@ -25,6 +25,9 @@ spec:
         image: azureus3k/gettask3005
         ports: 
         - containerPort: 8000
+        envFrom:
+        - secretRef:
+            name: secretconnection
         # envFrom:
         # - configMapRef:
         #     name: configmapconnection

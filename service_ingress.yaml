@@ -1,3 +1,80 @@
+# Service and Ingress Manifest
+# Todo Service
+# Add Task Service
+# Get Task Service
+# Delete Task Service
+# Ingress for Frontend and All three Backend Deployment
+
+
+# Todo Service
+
+apiVersion: v1 
+kind: Service
+metadata:
+  name: service-todoapp
+spec: 
+  selector:
+    app: todoapp
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP
+
+---
+
+# Add Task Service
+
+apiVersion: v1 
+kind: Service
+metadata:
+  name: service-addtask
+spec: 
+  selector:
+    app: addtask
+  ports:
+  - port: 80
+    targetPort: 8000
+  type: ClusterIP
+
+
+---
+
+# Get Task Service
+
+apiVersion: v1 
+kind: Service
+metadata:
+  name: service-gettask
+spec: 
+  selector:
+    app: gettask
+  ports:
+  - port: 80
+    targetPort: 8000
+  type: ClusterIP
+
+
+---
+
+# Delete Task Service
+
+apiVersion: v1 
+kind: Service
+metadata:
+  name: service-deletetask
+spec: 
+  selector:
+    app: deletetask
+  ports:
+  - port: 80
+    targetPort: 8000
+  type: ClusterIP
+
+
+---
+
+# Ingress for Frontend and All three Backend Deployment
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -45,3 +122,5 @@ spec:
               number: 80
         path: "/"
         pathType: Prefix
+
+

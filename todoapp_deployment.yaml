@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: todoapp-con
-        image: azureus3k/todoui_2306
+        image: azureus3k/todoapppipeline:296
         ports: 
         - containerPort: 80
 
